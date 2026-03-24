@@ -1,0 +1,108 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.galerija h1 {
+    font-family: 'Syncopate', sans-serif;
+    color: #ff007f;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #ff007f;
+    padding-bottom: 0.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.galerija_slika {
+    margin: 0;
+    border: 2px solid #2a2a2a;
+    background: #141414;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.galerija_slika:hover {
+    transform: translateY(-5px);
+    border-color: #ff007f;
+    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+}
+
+.galerija_slika img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    opacity: 0.8;
+    filter: grayscale(20%);
+    transition: 0.3s;
+}
+
+.galerija_slika:hover img {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.galerija_slika figcaption {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    color: #ff80bf;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.lightbox-overlay:target {
+    display: flex;
+}
+
+.lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 70vh;
+    border: 3px solid #ff007f;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.5);
+}
+
+.lightbox-close {
+    background: #ff007f;
+    color: white;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.8rem;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.lightbox-close:hover {
+    background: white;
+    color: #ff007f;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}

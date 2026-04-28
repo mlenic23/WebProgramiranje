@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="description" content="List of movies with ratings, genres and details.">
+
+	<meta name="keywords" content="movies, movie ratings, genres, cinema, reviews">
+
+	<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!--Potrebno uključiti biblioteku za rad sa CSV-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+	<title>Movie World</title>
+</head>
+
+<body>
+    <header role="banner">
+        <h1 class="header-title">Movie World</h1>
+        <nav aria-label="Primary navigation">
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="grafikon.html">Graphs</a></li>
+                <li><a href="/slike">Images</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <section class="content-section" aria-labelledby="movie-titles">
+            <h2 id="movie-titles">List of Movies</h2>
+            <!--Zadatak 3.-->
+            <div class="cart-nav">
+                <button id="view-cart-btn">Pregled košarice (<span id="cart-count">0</span>)</button>
+            </div>
+
+            <section id="cart-section" style="display: none;" class="filter-container">
+                <h2>Vaša košarica za posudbu</h2>
+                <ul id="cart-items-list"></ul>
+                <p id="cart-empty-msg">Košarica je prazna.</p>
+                <button id="confirm-purchase" class="cta-button">Potvrdi posudbu</button>
+                <button id="close-cart">Zatvori</button>
+            </section>
+            
+            <!--Zadatak 2.-->
+            <section id="filter-kontrole" class="filter-container">
+                <div class="filter-group">
+                    <label for="search-title">Pretraži naslov:</label>
+                    <input type="text" id="search-title" placeholder="Upišite naziv filma...">
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-genre">Žanr:</label>
+                    <select id="filter-genre">
+                        <option value="all">Svi žanrovi</option>
+                        <option value="Action">Action</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Crime">Crime</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Godina (od - do):</label>
+                    <input type="number" id="year-from" placeholder="Od">
+                    <input type="number" id="year-to" placeholder="Do">
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-rating">Minimalna ocjena:</label>
+                    <input type="range" id="filter-rating" min="0" max="10" step="0.1" value="0">
+                    <span id="rating-value">0</span>
+                </div>
+
+                <button id="reset-filters">Poništi filtere</button>
+            </section>
+
+            <!--Zadatak 1.-->
+            <div class="table-image-layout">
+                <div class="table-wrapper">
+					<table id="filmovi-tablica"> 
+                        <thead>
+                            <tr>
+                                <th>Naslov</th>
+                                <th>Godina</th>
+                                <th>Žanr</th>
+                                <th>Trajanje</th>
+                                <th>Ocjena</th>
+                                <th>Akcija</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+				</div>
+
+				<aside class="image-aside" role="complementary" aria-label="Featured movie poster">
+                    <h3 class="aside-title">Featured Movie</h3>
+                    <figure class="featured-item">
+                        <picture>
+                            <source media="(min-width: 769px)" srcset="https://m.media-amazon.com/images/M/MV5BZTllZDYyNjEtY2RmMS00NmJhLWI4ODAtMTQ0NWFiZTJhZjA0XkEyXkFqcGc@._V1_.jpg">
+                            <source media="(max-width: 768px)" srcset="https://m.media-amazon.com/images/I/717yoP2r7XL._AC_UF894,1000_QL80_.jpg">
+                            <img src="https://m.media-amazon.com/images/M/MV5BZTllZDYyNjEtY2RmMS00NmJhLWI4ODAtMTQ0NWFiZTJhZjA0XkEyXkFqcGc@._V1_.jpg" alt="Featured Movie" class="featured-image">
+                        </picture>
+                        <figcaption class="image-description desc-desktop">Some Like It Hot</figcaption>
+                        <figcaption class="image-description desc-mobile">At Close Range</figcaption>
+                    </figure>
+                </aside>
+            </div>
+        </section>
+
+		<section class="content-section fade-in" aria-labelledby="about-title">
+            <h2 id="about-title">About this page</h2>
+            <p>This website is a dedicated Movie Database featuring a curated selection of films. 
+                It provides a clean overview of movie titles genres, and ratings.</p>
+            <a href="grafikon.html" class="cta-button">View Stats</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026. Web Programming. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>

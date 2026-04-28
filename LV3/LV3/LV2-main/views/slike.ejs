@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galerija filmskih postera u neon stilu.">
+    
+    <link rel="stylesheet" href="/style.css"> 
+    <link rel="stylesheet" href="/style_slike.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <title>Gallery</title>
+</head>
+<body class="neon-bg">
+
+    <header role="banner">
+        <h1 class="header-title">Movie World</h1>
+        <nav aria-label="Primary navigation">
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="grafikon.html">Graphs</a></li>
+                <li><a href="/slike">Images</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <% images.forEach(image => { %>
+        <div id="<%= image.id %>" class="lightbox-overlay">
+            <img src="<%= image.url %>" alt="Slika <%= image.title %>">
+            <a href="#!" class="lightbox-close" role="button" aria-label="Close image">Close</a>
+        </div>
+    <% }) %>
+
+    <main class="container fade-in">
+        <section class="galerija" aria-labelledby="gallery-title">
+            <div class="gallery-grid">
+                
+                <% images.forEach(image => { %>
+                    <figure class="galerija_slika">
+                        <a href="#<%= image.id %>">
+                            <img src="<%= image.url %>" alt="<%= image.title %>" loading="lazy">
+                        </a>
+                        <figcaption><%= image.title %></figcaption>
+                    </figure>
+                <% }) %>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

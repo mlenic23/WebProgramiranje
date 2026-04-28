@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visual representation of movie statistics using CSS-only charts.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <title>Movie Stats</title>
+</head>
+<body>
+    <header role="banner">
+        <h1 class="header-title">Graphs</h1>
+        <nav aria-label="Primary navigation">
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="grafikon.html">Graphs</a></li>
+                <li><a href="/slike">Images</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="content-section slide-in">
+            <h2>Ratings Histogram</h2>
+            <p>Number of movies per rating range.</p>
+            
+            <div class="bar-chart-neon" role="img" aria-label="Histogram of movie ratings">
+                <div class="bar" style="--height: 75%;" data-label="3">
+                    <span class="x-os-label">6.0-6.9</span>
+                </div>
+                
+                <div class="bar" style="--height: 25%;" data-label="1">
+                    <span class="x-os-label">8.0-8.9</span>
+                </div>
+                
+                <div class="bar" style="--height: 25%;" data-label="1">
+                    <span class="x-os-label">9.0-10</span>
+                </div>
+
+                <div class="bar" style="--height: 100%;" data-label="4">
+                    <span class="x-os-label">7.0-7.9</span>
+                </div>
+
+            </div>
+        </section>
+    
+        <section class="content-section fade-in" aria-labelledby="genre-stats">
+            <h2 id="genre-stats">Genre Distribution</h2>
+            <p>Visualizing the percentage of movies by genre.</p>
+            
+            <div class="chart-wrapper">
+                <div class="pie-chart-neon" role="img" aria-label="Pie chart showing genre distribution: Drama 44%, Comedy 22%, Animation 11%, Crime 11%, Action 11%"></div>
+                <ul class="chart-legend">
+                    <li><span class="dot drama" aria-hidden="true"></span> Drama (44%)</li>
+                    <li><span class="dot comedy" aria-hidden="true"></span> Comedy (22%)</li>
+                    <li><span class="dot animation" aria-hidden="true"></span> Animation (11%)</li>
+                    <li><span class="dot crime" aria-hidden="true"></span> Crime (11%)</li>
+                    <li><span class="dot action" aria-hidden="true"></span> Action (11%)</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026. Web Programming. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
